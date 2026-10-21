@@ -32,7 +32,7 @@ jobs:
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/bauerbrun0.dev:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/bauerbrun0.dev:${{ github.sha }}
-          platforms: linux/amd64
+          platforms: linux/amd64,linux/arm64
 
       - name: Deploy to production
         run: |
