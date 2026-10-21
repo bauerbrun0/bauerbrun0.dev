@@ -30,8 +30,8 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/brun0.codes:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/brun0.codes:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/bauerbrun0.dev:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/bauerbrun0.dev:${{ github.sha }}
           platforms: linux/amd64
 
       - name: Deploy to production

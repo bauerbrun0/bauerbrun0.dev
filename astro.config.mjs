@@ -6,7 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, fontProviders } from "astro/config";
 
 export default defineConfig({
-	site: "https://brun0.codes",
+	site: "https://bauerbrun0.dev",
 
 	adapter: node({
 		mode: "standalone",

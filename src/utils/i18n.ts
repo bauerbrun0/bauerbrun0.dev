@@ -4,7 +4,7 @@ export const defaultLang = "en";
 
 export const ui = {
 	en: {
-		"title.home": "brun0.codes",
+		"title.home": "bauerbrun0.dev",
 		"header.dark": "dark",
 		"header.light": "light",
 		"header.system": "system",
@@ -18,7 +18,7 @@ export const ui = {
 		"404.back": "Go back to the homepage",
 	},
 	hu: {
-		"title.home": "brun0.codes",
+		"title.home": "bauerbrun0.dev",
 		"header.dark": "sötét",
 		"header.light": "világos",
 		"header.system": "rendszer",
