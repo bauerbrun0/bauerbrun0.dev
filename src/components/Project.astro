@@ -8,12 +8,14 @@ interface Props {
 	description: string;
 	link: string;
 	type: "github" | "live";
+	wip?: boolean;
 }
 
-const { title, description, link, type }: Props = Astro.props;
+const { title, description, link, type, wip = false }: Props = Astro.props;
 ---
 
 <div>
+  <div class="flex items-center gap-1.5">
     <Link href={link} target="_blank">
         <div class="flex items-center gap-1.5 w-fit">
             <span>{title}</span>
@@ -26,6 +28,20 @@ const { title, description, link, type }: Props = Astro.props;
             }
         </div>
     </Link>
+    {
+      wip && (
+        <span
+          class={`
+            inline-flex items-center rounded-md border border-amber-500/30 bg-amber-500/10
+            px-1.5 py-0.5 text-[10px] leading-none font-semibold tracking-wide text-amber-700 dark:text-amber-400
+          `}>
+            WIP
+        </span>
+
+
+      )
+    }
+    </div>
     <p
         class="text-sm md:text-base md:mt-2 mt-2 mb-0! text-gray-600 dark:text-gray-400"
     >
