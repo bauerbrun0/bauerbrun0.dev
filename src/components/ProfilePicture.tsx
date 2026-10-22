@@ -1,4 +1,4 @@
-import profilePicture from "@assets/images/profile-picture.png";
+import profilePicture from "@assets/images/profile-picture.webp";
 
 export function ProfilePicture({ alt }: { alt: string }) {
 	return (
