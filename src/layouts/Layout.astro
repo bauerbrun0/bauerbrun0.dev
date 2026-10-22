@@ -1,24 +1,23 @@
 ---
 import Head from "@components/Head.astro";
 import Header from "@components/Header.astro";
-
 import "@styles/global.css";
 
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title }: Props = Astro.props;
 ---
 
 <html lang={Astro.currentLocale}>
-    <head>
-        <Head title={title} />
-    </head>
-    <body class="dark:bg-[#18181A] dark:text-white">
-        <div class="min-h-dvh w-full md:max-w-3xl mx-auto py-12 px-4 md:px-8">
-            <Header />
-            <slot />
-        </div>
-    </body>
+  <head>
+    <Head title={title} />
+  </head>
+  <body class="dark:bg-[#18181A] dark:text-white">
+    <div class="mx-auto min-h-dvh w-full px-4 py-12 md:max-w-3xl md:px-8">
+      <Header />
+      <slot />
+    </div>
+  </body>
 </html>

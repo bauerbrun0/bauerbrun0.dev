@@ -1,4 +1,6 @@
 ---
+import type { Language } from "@utils/i18n";
+
 import { EmailLink } from "@components/EmailLink.tsx";
 import { HeroProfile } from "@components/HeroProfile.tsx";
 import Job from "@components/Job.astro";
@@ -6,110 +8,94 @@ import Link from "@components/Link.astro";
 import Project from "@components/Project.astro";
 import Technologies from "@components/Technologies.astro";
 import Layout from "@layouts/Layout.astro";
-import type { Language } from "@utils/i18n";
 ---
 
 <Layout title="bauerbrun0.dev">
-    <HeroProfile client:load lang={Astro.currentLocale as Language} />
-    <div class="prose-sm md:prose-base text-gray-800 dark:text-gray-200 mt-10">
-        <p>
-            Pécsi székhelyű mérnökinformatikus vagyok, nemrég végeztem el a
-            Pécsi Tudományegyetem alapképzését, és jelenleg junior fejlesztői
-            pozíciót keresek.
-        </p>
-    </div>
-    <div class="mt-8 prose-sm md:prose-base text-gray-800 dark:text-gray-200">
-        <h1 class="text-sm md:text-base font-medium">Technológiák</h1>
-        <Technologies
-            name="Frontend"
-            technologies={[
-              "TypeScript",
-              "JavaScript",
-              "Svelte",
-              "SvelteKit",
-              "React",
-              "Tanstack Start",
-              "Astro",
-              "CSS",
-              "TailwindCSS",
-            ]}
-        />
-        <Technologies
-            name="Backend"
-            technologies={[
-              "Java",
-              "Spring",
-              "Go",
-              "SQL",
-              "PostgreSQL",
-              "Oracle",
-              "Drizzle ORM"
-            ]}
-        />
-        <Technologies
-            name="Eszközök"
-            technologies={["Git", "Docker", "Docker Compose", "Linux"]}
-        />
-    </div>
-    <div
-        class="mt-8 prose-sm md:prose-base text-gray-800 dark:text-gray-200 grid grid-cols-1 md:grid-cols-2 gap-8"
-    >
-        <div>
-            <h1 class="text-sm md:text-base font-medium">Tapasztalat</h1>
-            <Job
-                date="2024"
-                title="Szakmai gyakorlat"
-                company="Seiren"
-                url="https://seiren.hu"
-                description="Full-stack webalkalmazás fejlesztése a vállalat munkaidő-nyilvántartási feladatainak automatizálására.
+  <HeroProfile client:load lang={Astro.currentLocale as Language} />
+  <div class="prose-sm mt-10 text-gray-800 md:prose-base dark:text-gray-200">
+    <p>
+      Pécsi székhelyű mérnökinformatikus vagyok, nemrég végeztem el a Pécsi Tudományegyetem
+      alapképzését, és jelenleg junior fejlesztői pozíciót keresek.
+    </p>
+  </div>
+  <div class="prose-sm mt-8 text-gray-800 md:prose-base dark:text-gray-200">
+    <h1 class="text-sm font-medium md:text-base">Technológiák</h1>
+    <Technologies
+      name="Frontend"
+      technologies={[
+        "TypeScript",
+        "JavaScript",
+        "Svelte",
+        "SvelteKit",
+        "React",
+        "Tanstack Start",
+        "Astro",
+        "CSS",
+        "TailwindCSS",
+      ]}
+    />
+    <Technologies
+      name="Backend"
+      technologies={["Java", "Spring", "Go", "SQL", "PostgreSQL", "Oracle", "Drizzle ORM"]}
+    />
+    <Technologies name="Eszközök" technologies={["Git", "Docker", "Docker Compose", "Linux"]} />
+  </div>
+  <div class="prose-sm mt-8 grid grid-cols-1 gap-8 text-gray-800 md:prose-base md:grid-cols-2 dark:text-gray-200">
+    <div>
+      <h1 class="text-sm font-medium md:text-base">Tapasztalat</h1>
+      <Job
+        date="2024"
+        title="Szakmai gyakorlat"
+        company="Seiren"
+        url="https://seiren.hu"
+        description="Full-stack webalkalmazás fejlesztése a vállalat munkaidő-nyilvántartási feladatainak automatizálására.
                 Automatikus CSV-feldolgozás, Active Directory integrációval megvalósított autentikáció és jogosultságkezelés.
                 Főbb technológiák: SvelteKit, TypeScript, PostgreSQL."
-            />
-        </div>
-        <div>
-            <h1 class="text-sm md:text-base font-medium">Projektek</h1>
-            <div class="grid grid-cols-1 gap-5">
-                <Project
-                    title="n2t"
-                    description="Hardverszimulátor a Nand2Tetris HDL alapján. Go, Svelte, PostgreSQL."
-                    link="https://n2t.bauerbrun0.dev"
-                    type="live"
-                />
-                <Project
-                    title="snippetvault"
-                    description="Kódrészlet-kezelő alkalmazás. Spring, Vue, Oracle."
-                    link="https://github.com/bauerbrun0/snippetvault"
-                    type="github"
-                />
-                <Project
-                    title="bauerbrun0.dev"
-                    description="Ez a weboldal, Astro keretrendszerrel fejlesztve."
-                    link="https://github.com/bauerbrun0/bauerbrun0.dev"
-                    type="github"
-                />
-                <Project
-                    title="bchat"
-                    description="Egy chatalkalmazás fejlesztése TanStack Start, React, tRPC és PostgreSQL használatával."
-                    link="https://github.com/bauerbrun0/bchat"
-                    type="github"
-                    wip
-                />
-            </div>
-        </div>
+      />
     </div>
-    <div class="mt-8 prose-sm md:prose-base text-gray-800 dark:text-gray-200">
-        <h1 class="text-sm md:text-base font-medium">Kapcsolat</h1>
-        <p>
-            GitHub-profilomat <Link
-                href="https://github.com/bauerbrun0"
-                target="_blank">itt találod</Link
-            >. Az e-mail címem: <EmailLink client:only />. Az önéletrajzomat
-            pedig <Link
-                href="/resume.pdf"
-                target="_blank"
-                download
-                downloadFilename="Bauer_Bruno_resume.pdf">itt töltheted le</Link
-            >.
-        </p>
+    <div>
+      <h1 class="text-sm font-medium md:text-base">Projektek</h1>
+      <div class="grid grid-cols-1 gap-5">
+        <Project
+          title="n2t"
+          description="Hardverszimulátor a Nand2Tetris HDL alapján. Go, Svelte, PostgreSQL."
+          link="https://n2t.bauerbrun0.dev"
+          type="live"
+        />
+        <Project
+          title="snippetvault"
+          description="Kódrészlet-kezelő alkalmazás. Spring, Vue, Oracle."
+          link="https://github.com/bauerbrun0/snippetvault"
+          type="github"
+        />
+        <Project
+          title="bauerbrun0.dev"
+          description="Ez a weboldal, Astro keretrendszerrel fejlesztve."
+          link="https://github.com/bauerbrun0/bauerbrun0.dev"
+          type="github"
+        />
+        <Project
+          title="bchat"
+          description="Egy chatalkalmazás fejlesztése TanStack Start, React, tRPC és PostgreSQL használatával."
+          link="https://github.com/bauerbrun0/bchat"
+          type="github"
+          wip
+        />
+      </div>
     </div>
+  </div>
+  <div class="prose-sm mt-8 text-gray-800 md:prose-base dark:text-gray-200">
+    <h1 class="text-sm font-medium md:text-base">Kapcsolat</h1>
+    <p>
+      GitHub-profilomat{" "}
+      <Link href="https://github.com/bauerbrun0" target="_blank">
+        itt találod
+      </Link>
+      . Az e-mail címem: <EmailLink client:only />. Az önéletrajzomat pedig{" "}
+      <Link href="/resume.pdf" target="_blank" download downloadFilename="Bauer_Bruno_resume.pdf">
+        itt töltheted le
+      </Link>
+      .
+    </p>
+  </div>
 </Layout>

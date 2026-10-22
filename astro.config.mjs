@@ -6,51 +6,51 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, fontProviders } from "astro/config";
 
 export default defineConfig({
-	site: "https://bauerbrun0.dev",
+  site: "https://bauerbrun0.dev",
 
-	adapter: node({
-		mode: "standalone",
-	}),
+  adapter: node({
+    mode: "standalone",
+  }),
 
-	vite: {
-		plugins: [tailwindcss()],
-	},
+  vite: {
+    plugins: [tailwindcss()],
+  },
 
-	integrations: [react()],
+  integrations: [react()],
 
-	i18n: {
-		locales: ["en", "hu"],
-		defaultLocale: "en",
-	},
+  i18n: {
+    locales: ["en", "hu"],
+    defaultLocale: "en",
+  },
 
-	fonts: [
-		{
-			provider: fontProviders.local(),
-			name: "Inter",
-			cssVariable: "--font-inter",
-			options: {
-				variants: [
-					{
-						src: ["./src/assets/fonts/InterVariable.woff2"],
-						weight: "100 900",
-						style: "normal",
-					},
-				],
-			},
-		},
-		{
-			provider: fontProviders.local(),
-			name: "Fira Code",
-			cssVariable: "--font-fira-code",
-			options: {
-				variants: [
-					{
-						src: ["./src/assets/fonts/FiraCode-Variable.ttf"],
-						weight: "300 700",
-						style: "normal",
-					},
-				],
-			},
-		},
-	],
+  fonts: [
+    {
+      provider: fontProviders.local(),
+      name: "Inter",
+      cssVariable: "--font-inter",
+      options: {
+        variants: [
+          {
+            src: ["./src/assets/fonts/InterVariable.woff2"],
+            weight: "100 900",
+            style: "normal",
+          },
+        ],
+      },
+    },
+    {
+      provider: fontProviders.local(),
+      name: "Fira Code",
+      cssVariable: "--font-fira-code",
+      options: {
+        variants: [
+          {
+            src: ["./src/assets/fonts/FiraCode-Variable.ttf"],
+            weight: "300 700",
+            style: "normal",
+          },
+        ],
+      },
+    },
+  ],
 });

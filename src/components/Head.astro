@@ -1,9 +1,9 @@
 ---
-import { Font } from "astro:assets";
 import heroImage from "@assets/images/profile-picture.webp";
+import { Font } from "astro:assets";
 
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title }: Props = Astro.props;
@@ -19,28 +19,21 @@ const { title }: Props = Astro.props;
 <meta name="generator" content={Astro.generator} />
 <title>{title}</title>
 <script is:inline>
-    function updateTheme() {
-        const storedTheme = localStorage.theme;
-        const isSystemDark = window.matchMedia(
-            "(prefers-color-scheme: dark)",
-        ).matches;
+  function updateTheme() {
+    const storedTheme = localStorage.theme;
+    const isSystemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-        if (storedTheme) {
-            document.documentElement.dataset.theme = storedTheme;
-            document.documentElement.classList.toggle(
-                "dark",
-                storedTheme === "dark",
-            );
-            return;
-        }
-
-        document.documentElement.classList.toggle("dark", isSystemDark);
-        document.documentElement.dataset.theme = "system";
+    if (storedTheme) {
+      document.documentElement.dataset.theme = storedTheme;
+      document.documentElement.classList.toggle("dark", storedTheme === "dark");
+      return;
     }
 
-    updateTheme();
+    document.documentElement.classList.toggle("dark", isSystemDark);
+    document.documentElement.dataset.theme = "system";
+  }
 
-    window
-        .matchMedia("(prefers-color-scheme: dark)")
-        .addEventListener("change", updateTheme);
+  updateTheme();
+
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateTheme);
 </script>

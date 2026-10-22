@@ -1,17 +1,17 @@
 ---
-import { getRelativeLocaleUrl } from "astro:i18n";
 import Link from "@components/Link.astro";
 import Layout from "@layouts/Layout.astro";
 import { type Language, useTranslations } from "@utils/i18n.ts";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 const lang = Astro.currentLocale as Language;
 const t = useTranslations(lang);
 ---
 
 <Layout title={t("404.title")}>
-    <div class="mt-20 prose-sm md:prose-base">
-        <h3>{t("404.title")}</h3>
-        <p>{t("404.description")}</p>
-        <Link href={getRelativeLocaleUrl(lang, "/")}>{t("404.back")}</Link>
-    </div>
+  <div class="prose-sm mt-20 md:prose-base">
+    <h3>{t("404.title")}</h3>
+    <p>{t("404.description")}</p>
+    <Link href={getRelativeLocaleUrl(lang, "/")}>{t("404.back")}</Link>
+  </div>
 </Layout>

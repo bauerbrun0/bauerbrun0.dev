@@ -1,32 +1,25 @@
 ---
 interface Props {
-	title: string;
-	company: string;
-	date: string;
-	description: string;
-	url: string;
+  title: string;
+  company: string;
+  date: string;
+  description: string;
+  url: string;
 }
 
 const { title, company, date, description, url }: Props = Astro.props;
 ---
 
 <a
-    class="group flex items-center gap-1.5 md:gap-2 w-full hover:cursor-pointer"
-    href={url}
-    target="_blank"
+  class="group flex w-full items-center gap-1.5 hover:cursor-pointer md:gap-2"
+  href={url}
+  target="_blank"
 >
-    <div class="flex items-center gap-1.5 md:gap-2">
-        <span>{title}</span>
-        <span class="text-gray-600 dark:text-gray-400">{company}</span>
-    </div>
-    <div
-        class="flex-1 border-b opacity-10 group-hover:opacity-50 transition-all duration-300 ease-in-out"
-    >
-    </div>
-    <span>{date}</span>
+  <div class="flex items-center gap-1.5 md:gap-2">
+    <span>{title}</span>
+    <span class="text-gray-600 dark:text-gray-400">{company}</span>
+  </div>
+  <div class="flex-1 border-b opacity-10 transition-all duration-300 ease-in-out group-hover:opacity-50"></div>
+  <span>{date}</span>
 </a>
-<p
-    class="text-sm md:text-base md:mt-2 mt-2 text-gray-600 dark:text-gray-400 mb-0"
->
-    {description}
-</p>
+<p class="mt-2 mb-0 text-sm text-gray-600 md:mt-2 md:text-base dark:text-gray-400">{description}</p>

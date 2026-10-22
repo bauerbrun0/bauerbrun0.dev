@@ -1,7 +1,8 @@
 ---
-import { getRelativeLocaleUrl } from "astro:i18n";
 import ArrowDownRight from "@assets/icons/ArrowDownRight.astro";
 import { type Language, useTranslations } from "@utils/i18n.ts";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
 import { AnimatedUnderline } from "./AnimatedUnderline.tsx";
 import { LanguageToggle } from "./LanguageToggle.tsx";
 import { ThemeToggle } from "./ThemeToggle.tsx";
@@ -10,39 +11,29 @@ const lang = Astro.currentLocale as Language;
 const t = useTranslations(lang);
 ---
 
-<header class="w-full flex gap-3 md:gap-4 justify-end text-sm sm:text-base">
-    <!-- these and AnimatedUnderline should be Astro components, I just wanted to try React in Astro. -->
-    <LanguageToggle client:load lang={lang} />
-    <ThemeToggle client:load lang={lang} />
-    <div
-        class="inline-block h-auto w-px self-stretch bg-neutral-300 dark:bg-neutral-600 my-1.5"
-    >
-    </div>
-    <nav>
-        <ul class="flex gap-3 md:gap-4">
-            <li>
-                <a href={getRelativeLocaleUrl(lang, "/")} class="group">
-                    <AnimatedUnderline client:load>
-                        {t("header.home")}
-                    </AnimatedUnderline>
-                </a>
-            </li>
+<header class="flex w-full justify-end gap-3 text-sm sm:text-base md:gap-4">
+  <!-- these and AnimatedUnderline should be Astro components, I just wanted to try React in Astro. -->
+  <LanguageToggle client:load lang={lang} />
+  <ThemeToggle client:load lang={lang} />
+  <div class="my-1.5 inline-block h-auto w-px self-stretch bg-neutral-300 dark:bg-neutral-600"></div>
+  <nav>
+    <ul class="flex gap-3 md:gap-4">
+      <li>
+        <a href={getRelativeLocaleUrl(lang, "/")} class="group">
+          <AnimatedUnderline client:load>{t("header.home")}</AnimatedUnderline>
+        </a>
+      </li>
 
-            <li>
-                <a
-                    href="/resume.pdf"
-                    target="_blank"
-                    download="Bauer_Bruno_resume.pdf"
-                    class="group"
-                >
-                    <AnimatedUnderline client:load>
-                        <div class="flex gap-1 items-center">
-                            <span>{t("header.resume")}</span>
-                            <ArrowDownRight classes="w-4 h-4" />
-                        </div>
-                    </AnimatedUnderline>
-                </a>
-            </li>
-        </ul>
-    </nav>
+      <li>
+        <a href="/resume.pdf" target="_blank" download="Bauer_Bruno_resume.pdf" class="group">
+          <AnimatedUnderline client:load>
+            <div class="flex items-center gap-1">
+              <span>{t("header.resume")}</span>
+              <ArrowDownRight classes="w-4 h-4" />
+            </div>
+          </AnimatedUnderline>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </header>
